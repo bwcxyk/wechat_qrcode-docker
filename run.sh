@@ -5,6 +5,12 @@ sed -i -e "s|###appId###|$appId|g" weAppCode.php && \
 sed -i -e "s|###weapp_secret###|$weapp_secret|g" weAppCode.php && \
 sed -i -e "s|###imgpath###|$imgpath|g" weAppCode.php
 
+# cron
+# del tmpfile
+tee -a /var/spool/cron/crontabs/root << EOF
+0       2       *       *       *       find /var/www/html/qrcode/tmsimg/pages/receipt/receipt -mtime +90 |xargs rm -f
+EOF
+
 # Start php and nginx 
 while :
 do
