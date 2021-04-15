@@ -16,14 +16,18 @@ COPY run.sh /run.sh
 COPY weAppCode.php /var/www/qrcode/weAppCode.php
 
 # 若使用root权限启动nginx, 开启gzip压缩, 需修改配置如下
-RUN sed 's/user nginx;/user root;/g' /etc/nginx/nginx.conf | sed 's/#gzip on;/gzip on;/g' > /tmp/nginx.conf
-RUN mv /tmp/nginx.conf /etc/nginx/nginx.conf
+RUN sed 's/user nginx;/user root;/g' /etc/nginx/nginx.conf | sed 's/#gzip on;/gzip on;/g' > /tmp/nginx.conf \
+    && mv /tmp/nginx.conf /etc/nginx/nginx.conf
 
 # 开启opcache
-RUN sed 's/;opcache.enable=1/opcache.enable=1/g' /etc/php7/php.ini | sed 's/;opcache.validate_timestamps=1/opcache.validate_timestamps=0/g' | sed 's/;opcache.memory_consumption=128/opcache.memory_consumption=128/g' | sed 's/;opcache.interned_strings_buffer=8/opcache.interned_strings_buffer=8/g' | sed 's/;opcache.max_accelerated_files=10000/opcache.max_accelerated_files=10000/g' > /tmp/php.ini
-RUN mv /tmp/php.ini /etc/php7/php.ini
+RUN sed 's/;opcache.enable=1/opcache.enable=1/g' /etc/php7/php.ini \
+    && sed 's/;opcache.validate_timestamps=1/opcache.validate_timestamps=0/g' \
+    && sed 's/;opcache.memory_consumption=128/opcache.memory_consumption=128/g' \
+    && sed 's/;opcache.interned_strings_buffer=8/opcache.interned_strings_buffer=8/g' \
+    && sed 's/;opcache.max_accelerated_files=10000/opcache.max_accelerated_files=10000/g' > /tmp/php.ini \
+	&& mv /tmp/php.ini /etc/php7/php.ini
 
-VOLUME /var/www
+WORKDIR /var/www/qrcode
 
 EXPOSE 80 443
 

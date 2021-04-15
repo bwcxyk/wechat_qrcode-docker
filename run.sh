@@ -8,7 +8,7 @@ sed -i -e "s|###imgpath###|$imgpath|g" weAppCode.php
 # cron
 # del tmpfile
 tee -a /var/spool/cron/crontabs/root << EOF
-0       2       *       *       *       find /var/www/html/tmsimg/pages -type f -mtime +60 |xargs rm -f
+0       2       *       *       *       find /var/www/qrcode/tmsimg/pages -type f -mtime +60 |xargs rm -f
 EOF
 
 # Start php and nginx 
