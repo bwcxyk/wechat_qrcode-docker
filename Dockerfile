@@ -13,7 +13,7 @@ RUN set -x \
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY run.sh /run.sh
 COPY index.php /var/www/index.php
-COPY weAppCode.php /var/www/html/weAppCode.php
+COPY weAppCode.php /var/www/qrcode/weAppCode.php
 
 # 若使用root权限启动nginx, 开启gzip压缩, 需修改配置如下
 RUN sed 's/user nginx;/user root;/g' /etc/nginx/nginx.conf | sed 's/#gzip on;/gzip on;/g' > /tmp/nginx.conf
