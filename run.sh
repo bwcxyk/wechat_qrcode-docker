@@ -3,9 +3,10 @@
 # Environment
 sed -i -e "s|###appId###|$appId|g" weAppCode.php && \
 sed -i -e "s|###weapp_secret###|$weapp_secret|g" weAppCode.php && \
-sed -i -e "s|###appId2###|$appId|g" weAppCode.php && \
-sed -i -e "s|###weapp_secret2###|$weapp_secret|g" weAppCode.php && \
+sed -i -e "s|###appId2###|$appId|g" weAppCodeyj.php && \
+sed -i -e "s|###weapp_secret2###|$weapp_secret|g" weAppCode.phpyj && \
 sed -i -e "s|###imgpath###|$imgpath|g" weAppCode.php
+sed -i -e "s|###imgpath###|$imgpath|g" weAppCodeyj.php
 
 # cron
 # del tmpfile
