@@ -4,7 +4,7 @@ FROM php:7.2.30-fpm-alpine3.11
 RUN set -x \
     && echo "https://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories \
     && echo "https://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories \
-    && apk update \
+    && apk update --allow-untrusted \
     && apk add nginx  \
     && apk add curl bash \
     && apk add php7-mysqli php7-pdo_mysql php7-mbstring php7-json php7-zlib php7-gd php7-intl php7-session php7-memcached php7-curl php7-posix php7-fileinfo php7-simplexml php7-opcache php7-tokenizer php7-ctype php7-bcmath php7-openssl php7-dom php7-iconv php7-zip php7-pcntl php7-xmlwriter \
