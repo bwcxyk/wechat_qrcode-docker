@@ -33,4 +33,4 @@ jobs:
           push: true
           platforms: linux/amd64
           file: Dockerfile
-          tags: yaokun/wechat_qrcode:yuanfu
+          tags: yaokun/wechat_qrcode:latest
