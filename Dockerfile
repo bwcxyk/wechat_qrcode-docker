@@ -2,8 +2,8 @@
 FROM php:7.2.30-fpm-alpine3.11
 
 RUN set -x \
-    && echo "https://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories \
-    && echo "https://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories \
+    && echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories \
+    && echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories \
     && apk update --allow-untrusted \
     && apk add nginx  \
     && apk add curl bash \
