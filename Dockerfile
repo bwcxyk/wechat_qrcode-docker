@@ -5,7 +5,7 @@ RUN set -x \
     && apk update \
     && apk add nginx  \
     && apk add curl bash \
-    && apk add php7-json php7-curl php7-fileinfo php7-openssl
+    && apk add php-json php-curl php-fileinfo php-openssl
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY run.sh /run.sh
