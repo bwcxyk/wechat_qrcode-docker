@@ -1,11 +1,11 @@
 FROM php:8.2-fpm-alpine
 
-RUN set -x \
-    && sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories \
-    && apk update \
-    && apk add nginx  \
-    && apk add curl bash \
-    && apk add php-json php-curl php-fileinfo php-openssl
+RUN set -ex \
+  && sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories \
+  && apk update \
+  && apk add --no-cache nginx  \
+  && apk add --no-cache curl bash \
+  && apk add --no-cache php-json php-curl php-fileinfo php-openssl
 
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY run.sh /run.sh
