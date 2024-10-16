@@ -1,8 +1,7 @@
-FROM php:7.2.30-fpm-alpine3.11
+FROM php:8.2-fpm-alpine
 
 RUN set -x \
-    && echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories \
-    && echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories \
+    && sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories \
     && apk update \
     && apk add nginx  \
     && apk add curl bash \
