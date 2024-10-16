@@ -8,7 +8,7 @@ RUN set -x \
     && apk add curl bash \
     && apk add php7-json php7-curl php7-fileinfo php7-openssl
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 COPY run.sh /run.sh
 COPY weAppCode.php /var/www/qrcode/weAppCode.php
 
